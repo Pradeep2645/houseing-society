@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: housing-society-backend
+    env: node
+    plan: free
+    region: singapore
+    rootDir: .
+    buildCommand: npm install
+    startCommand: node src/server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      - key: DB_HOST
+        value: gateway01.ap-southeast-1.prod.aws.tidbcloud.com
+      - key: DB_PORT
+        value: 4000
+      - key: DB_USER
+        value: BYKm5AXZ5SsYaJ8.root
+      - key: DB_PASSWORD
+        value: QgVZupzXqg1NiUP5
+      - key: DB_NAME
+        value: housing_society_db
+      - key: DB_SSL
+        value: true
+      - key: DATABASE_URL
+        value: mysql://BYKm5AXZ5SsYaJ8.root:QgVZupzXqg1NiUP5@gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/housing_society_db
+      - key: JWT_SECRET
+        value: housing_society_enterprise_secret_2026_prod
+      - key: JWT_EXPIRES_IN
+        value: 7d
